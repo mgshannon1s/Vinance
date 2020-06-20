@@ -106,6 +106,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{4cca1b1f-e187-4f38-9d49-abc965bc7974}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VinanceData\VinanceData.csproj">
       <Project>{7178ed43-a4e7-4323-8398-ac10562ca366}</Project>
       <Name>VinanceData</Name>

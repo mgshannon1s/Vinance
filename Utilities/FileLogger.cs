@@ -1,13 +1,17 @@
 ﻿using System.IO;
 
-namespace VinanceData
+namespace Utilities
 {
     public static class FileLogger
     {
         public static bool LogWarning(string warningMessage)
         {
-            string filename = @"C:\Users\S\source\repos\Vinance\log.txt";
-            File.AppendAllText(filename, warningMessage);
+            File.AppendAllText(Constants.LogFilename, warningMessage);
+            return true;
+        }
+        public static bool LogError(string errorMessage)
+        {
+            File.AppendAllText(Constants.LogFilename, errorMessage);
             return true;
         }
     }

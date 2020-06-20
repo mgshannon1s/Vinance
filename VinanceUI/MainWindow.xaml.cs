@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 using VinanceData;
+using Utilities;
 
 namespace PersonalFinanceHelper
 {
@@ -9,13 +10,11 @@ namespace PersonalFinanceHelper
     /// </summary>
     public partial class MainWindow : Window
     {
-        string mintTransactionDownloadUrl = "https://mint.intuit.com/transactionDownload.event?queryNew=&offset=0&filterType=cash&comparableType=8";
         Transaction[] transactions;
-        private readonly string transactionFile = @"C:\Users\S\source\repos\Vinance\transactions.csv";
         public ObservableCollection<Transaction> data = new ObservableCollection<Transaction>();
         public MainWindow()
         {
-            transactions = TransactionImporter.LoadCsvToArray<Transaction>(transactionFile);
+            transactions = TransactionImporter.LoadCsvToArray<Transaction>(Constants.TransactionFile);
             InitializeComponent();
             foreach (Transaction result in transactions)
             {
@@ -27,7 +26,7 @@ namespace PersonalFinanceHelper
 
         private void UpdateTransactionsButton_click(object sender, RoutedEventArgs e)
         {
-            transactions = TransactionImporter.LoadCsvToArray<Transaction>(transactionFile);
+            transactions = TransactionImporter.LoadCsvToArray<Transaction>(Constants.TransactionFile);
         }
     }
 }
